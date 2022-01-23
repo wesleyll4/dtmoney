@@ -5,6 +5,7 @@ import { Header } from "./componentes/Header";
 import NewTransactionModal from "./componentes/NewTransactionModal";
 
 import { GlobalStyle } from "./styles/global";
+import { TransactionsProvider } from "./TransactionsContexts";
 
 Modal.setAppElement("#root");
 
@@ -20,7 +21,7 @@ function App() {
     setIsNewTransactionModalOpen(false);
   };
   return (
-    <>
+    <TransactionsProvider>
       <Header onOpenNewTransactionModal={handleOpenNewTransactionModal} />
       <Dashboard />
 
@@ -30,7 +31,7 @@ function App() {
       />
 
       <GlobalStyle />
-    </>
+    </TransactionsProvider>
   );
 }
 
